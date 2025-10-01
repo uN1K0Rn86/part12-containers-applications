@@ -23,7 +23,6 @@ router.post('/', async (req, res) => {
 router.get('/statistics', async (req, res) => {
   const counterValue = await getCounter()
   if (!counterValue) {
-    console.log('got null')
     res.send({ 'added_todos': 0 })
   } else {
     res.send({ 'added_todos': Number(counterValue) })
