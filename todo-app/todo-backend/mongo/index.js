@@ -10,7 +10,6 @@ if (MONGO_URL && !mongoose.connection.readyState) {
   } catch (e) {
     console.log(e)
   }
-  
 }
 
 
