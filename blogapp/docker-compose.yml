@@ -1,0 +1,19 @@
+services:
+  server:
+    image: blogapp-backend
+    build: ./backend/
+    container_name: blogapp-backend
+  app:
+    image: blogapp-frontend
+    build: ./frontend/
+    container_name: blogapp-frontend
+  nginx:
+    image: nginx:1.20.1
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    container_name: reverse-proxy
+    depends_on:
+      - app
+      - server
